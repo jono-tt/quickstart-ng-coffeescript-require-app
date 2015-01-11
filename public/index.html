@@ -1,17 +1,20 @@
 <!doctype html>
 <html>
   <head>
-    <title>My ng App</title>
+    <title>My ng App with material design</title>
 
     <!-- START: Script Includes: Replaced by Packager -->
+    <link rel="stylesheet" type="text/css" href="ui-assets/css/main.css"></link>
     <script src="../bower_components/requirejs/require.js" /></script>
     <script>
       require.config({
         baseUrl: "../app/"
       });
-  
+
       require(["scripts/config"], function() {
-        require(["scripts/boot/boot-strapper"]);
+        require(["additionalNgDependencies", "angular"], function(additionalNgDependencies) {
+          require(["scripts/boot/boot-strapper"]);
+        })
       });
     </script>
     <!-- END: Script Includes: Replaced by Packager -->

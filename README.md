@@ -231,6 +231,3 @@ Follow the Quickstart guide [here](https://devcenter.heroku.com/articles/quickst
 Remember to use the `config/environment.env` file to specify client side environment params. With heroku CLI tools, you can set those env properties per application:
 
 `heroku config:set MY_PROPERTY='this foo value'`
-
-
-

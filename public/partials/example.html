@@ -1,3 +1,58 @@
-<h1>Example Controller</h1>
+<header>
+  <md-toolbar scroll-shrink layout="row" md-theme="red">
+    <div class="md-toolbar-tools">
+      <md-button ng-click="toggleMenu()">
+        <div class="mdi mdi-menu"></div>
+      </md-button>
+      <h3>
+        <span>My Organizer</span>
+      </h3>
+    </div>
+  </md-toolbar>
+</header>
+<!-- CONTENT -->
+<div layout="vertical" flex>
+  <!-- LEFT SIDEBAR -->
+  <md-sidenav class="md-sidenav-left" md-component-id="left">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools" ng-click="toggleMenu()">
+        <div class="mdi mdi-close-circle"></div>
+        Menu
+      </h1>
+    </md-toolbar>
+    <md-content>
+      <md-list>
+        <md-item>
+          <md-item-content>
+            <div class="md-tile-content">
+              <md-button class="md-primary" ng-click="toggleMenu()">
+                <i class="mdi mdi-account-multiple icon"></i>
+                Contacts
+              </md-button>
+            </div>
+          </md-item-content>
+          <md-divider/>
+        </md-item>
+      </md-list>
+    </md-content>
+  </md-sidenav>
 
-<button ng-click="doAction()">Click Me</button>
+  <!-- MAIN CONTENT -->
+  <md-content class="md-padding" style="width: 99%">
+    <md-list role="list">
+      <md-item ng-repeat="item in contactList track by $index">
+        <md-whiteframe class="md-whiteframe-z1" layout layout-align="start center">
+          <md-item-content>
+            <div class="md-tile-left">
+              <img ng-src="{{item.face}}" class="face">
+            </div>
+            <div class="md-tile-content">
+              <md-button class="md-primary"><h3>{{item.name}} {{item.surname}}</h3></md-button>
+              <h4><i class="mdi mdi-phone"></i>{{item.phone}}</h4>
+            </div>
+          </md-item-content>
+        </md-whiteframe>
+      </md-item>
+    </md-list>
+  </md-content>
+</div>

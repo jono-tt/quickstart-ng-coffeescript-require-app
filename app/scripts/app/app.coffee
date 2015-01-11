@@ -3,15 +3,19 @@
 define [
   "angular"
   "ngRoute"
-], (angular, ngRoute) ->
+  "additionalNgDependencies"
+], (angular, ngRoute, additionalNgDependencies) ->
   #TODO: Configure the application Name
   appName = 'myApplication'
 
   #TODO: Set all dependencies of Angular
   allNgDependencies = [
-    "ngRoute"
+    "ngRoute",
+    "ngMaterial"
   ]
-  
+
+  allNgDependencies = allNgDependencies.concat(additionalNgDependencies)
+
   module = angular.module appName, allNgDependencies
 
   app = {

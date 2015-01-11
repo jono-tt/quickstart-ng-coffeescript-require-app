@@ -2,17 +2,26 @@ define [
   "app"
   "runnerHelpers"
   "angularMocks"
-  #TODO: Add your service path here
   "scripts/services/my-example-service"
-], (app, RunnerHelpers) ->
-  
+  "../../mock/portal-mocks.coffee"
+  "../../mock/generic-fixtures.coffee"
+], (app, RunnerHelpers, ngMocks, mod, PortalMocks, GenericFixture) ->
+
   describe "My Example Service", ->
     #TODO: Inject your service by specifying it in the RunnerHelper
-    ctx = RunnerHelpers.createInjectCtx("$myExampleService")
+    ctx = RunnerHelpers.createInjectCtx(["$myExampleService", "$httpBackend"])
+    resp = null
+    srv = null
 
-    it "should have the tryMyService feature", ->
-      expect(ctx.$myExampleService).toBeDefined()
-      expect(ctx.$myExampleService.tryMyService).toBeDefined()
-      expect(ctx.$myExampleService.tryMyService()).toEqual "do something"
+    beforeEach ->
+      PortalMocks.initMocks(ctx.$httpBackend)
+      resp = null
+      srv = ctx.$myExampleService
 
+    describe "get contacts services", ->
+      it "should get contacts successfully", ->
+        srv.getContacts().then (r) ->
+          resp = r
 
+        ctx.$httpBackend.flush()
+        expect(resp).toEqual(PortalMocks.Fixtures.contactList)

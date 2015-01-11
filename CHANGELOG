@@ -1,0 +1,9 @@
+VERSION 0.1.1
+---------------
+- Updated package version
+- Fix
+- Add ui-assets support (css and image)
+- Add support to angular material
+- Add mock support:
+  http://localhost:7358/public/index-mock.html
+

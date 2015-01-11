@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <title>QuickStart with material design</title>
+
+  <link rel="stylesheet" type="text/css" href="ui-assets/css/main.css"></link>
+  <script src="../bower_components/requirejs/require.js" /></script>
+  <script>
+  require.config({
+    baseUrl: "../app/"
+  });
+
+  require(["scripts/config"], function() {
+    require(["additionalNgDependencies", "angular"], function(additionalNgDependencies) {
+      //Add other dependencies
+      additionalNgDependencies.push("ngMockE2E");
+
+      require(["../bower_components/angular-mocks/angular-mocks"], function() {
+        require(["../test/mock/http-mocks"], function() {
+          require(["scripts/boot/boot-strapper"]);
+        });
+      });
+    });
+  });
+  </script>
+  <!-- END: Script Includes: Replaced by Packager -->
+</head>
+<body>
+<div ng-view></div>
+</body>
+</html>
+

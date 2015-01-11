@@ -4,6 +4,7 @@ define [
   "app"
   #TODO: All other services, controllers and directives
   "scripts/controllers/example-controller"
+  "scripts/services/my-example-service"
 ], ($, angular, app) ->
   startBootLoader = ->
     #Set loading classes
@@ -30,4 +31,3 @@ define [
   else
     return startBootLoader
 
-    

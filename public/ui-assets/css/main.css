@@ -1,0 +1,4 @@
+@import url("/bower_components/angular-material/angular-material.css");
+@import url("/bower_components/angular-material/themes/red-theme.css");
+@import url("/bower_components/mdi/materialdesignicons.css");
+@import url("base.css");
